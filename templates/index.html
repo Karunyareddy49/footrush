@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
 
+<body>
+
+<!-- ✅ INCLUDE HEADER HERE -->
+{% include 'header.html' %}
+<!-- HERO -->
+<section class="premium-hero">
+
+    <div class="hero-content">
+        <h1>Rush Into Your<br>Perfect Pair</h1>
+        <p>
+            Discover premium footwear crafted for performance and style.
+        </p>
+        <button>Shop Now</button>
+    </div>
+
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/nike.jpg') }}">
+        
+        <!-- Play Button -->
+        <div class="play-btn">▶</div>
+    </div>
+
+</section>
+
+<div class="products">
+
+    <!-- Dynamic Products -->
+    {% for p in products %}
+    <div class="card">
+        <img src="{{ url_for('static', filename=p.image) }}" alt="{{ p.name }}">
+        <h3>{{ p.name }}</h3>
+        <p>₹{{ p.price }}</p>
+
+        <a href="/add/{{ p.id }}">Add</a>
+        <a href="/wishlist/{{ p.id }}">❤️</a>
+    </div>
+    {% endfor %}
+
+</div>
+
+<!-- ✅ FOOTER OUTSIDE LOOP -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-section">
+            <h3>follow me</h3>
+        </div>
+
+        <div class="footer-section">
+            <a href="https://www.linkedin.com/in/pitchapati-karunya-reddy-1500162a8" target="_blank">linkedin</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>contact me</h3>
+            <p>Feel free to reach out for projects, collaborations, or any queries.</p>
+        </div>
+
+        <div class="footer-section">
+            <a href="mailto:pitchapatikarunyareddy@gmail.com">
+                pitchapatikarunyareddy@gmail.com
+            </a>
+            <br><br>
+            <a href="#">📄 download PDF profile</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            The content of this website belongs to Karunya Reddy and cannot be used without permission.
+        </p>
+        <p>© Karunya Reddy 2026</p>
+    </div>
+</footer>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+{% include 'header.html' %}
+
+<h1 style="text-align:center; margin-top:20px;">🛍️ Our Products</h1>
+
+<div class="products">
+
+    <!-- Example Static Products -->
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/nike.jpg') }}">
+        <h3>Nike Shoes</h3>
+        <p>₹2500</p>
+        <a href="#">Add to Cart</a>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/adidas.jpg') }}">
+        <h3>Adidas Sneakers</h3>
+        <p>₹3000</p>
+        <a href="#">Add to Cart</a>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/puma.jpg') }}">
+        <h3>Puma Shoes</h3>
+        <p>₹2000</p>
+        <a href="#">Add to Cart</a>
+    </div>
+
+</div>
+
+{% include 'footer.html' %}
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
