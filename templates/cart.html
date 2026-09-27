@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+{% include 'header.html' %}
+
+<div class="cart-container">
+
+    <h1 class="cart-title">🛒 Your Cart</h1>
+
+    {% if cart_items %}
+    
+    <div class="cart-items">
+        {% for item in cart_items %}
+        <div class="cart-card">
+
+            <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.name }}">
+
+            <div class="cart-info">
+                <h3>{{ item.name }}</h3>
+                <p>₹{{ item.price }}</p>
+            </div>
+
+            <!-- REMOVE BUTTON -->
+            <a href="/remove/{{ item.id }}" class="remove-btn">❌</a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="cart-summary">
+        <h2>Total: ₹{{ total }}</h2>
+        <a href="/checkout" class="checkout-btn">Proceed to Checkout 🚀</a>
+    </div>
+
+    {% else %}
+    
+    <div class="empty-cart">
+        <h2>Your cart is empty 😢</h2>
+        <a href="/" class="shop-btn">Start Shopping</a>
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% include 'footer.html' %}
+
+</body>
+</html>
